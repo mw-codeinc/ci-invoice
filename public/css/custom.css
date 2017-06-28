@@ -1,0 +1,12 @@
+.text-vcenter-center  {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.text-vcenter  {
+    vertical-align: middle !important;
+}
+
+.text-align-center {
+    text-align: center !important;
+}

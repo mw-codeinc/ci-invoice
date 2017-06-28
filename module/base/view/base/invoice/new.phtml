@@ -1,0 +1,233 @@
+<!-- BEGIN PAGE HEADER-->
+<?php echo $this->partial('partial/invoice-settings'); ?>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="portlet light" style="padding-bottom: 44px; margin-top: 20px;">
+	<div class="portlet-body">
+		<div class="invoice">
+			<div class="row invoice-logo">
+				<div class="col-sm-6 invoice-logo-space" style="margin-top: 12px;">
+					<img src="<?php echo $this->basepath().'/img/Codeinc-logo-invoice.png'?>" class="img-responsive" alt=""/>
+				</div>
+                <div class="col-sm-6">
+                    <div class="row pull-right">
+                        <h4 id="issued-date-field" class="pull-left" style="margin: 10px 10px 10px 20px;"><strong>Data wystawienia:</strong></h4>
+                        <div class="input-group input-medium date date-picker" data-date-format="dd/mm/yyyy" data-date-start-date="+0d" style="margin-bottom: 5px;">
+                            <input id="issued-date" type="text" class="form-control" readonly="">
+                            <span class="input-group-btn"><button class="btn default" type="button"><i class="fa fa-calendar"></i></button></span>
+                        </div>
+                    </div>
+                    <br style="clear: both;"/>
+                    <div class="row pull-right">
+                        <h4 id="sell-date-field" class="pull-left" style="margin: 10px 10px 10px 20px;"><strong>Data sprzedaży:</strong></h4>
+                        <div class="input-group input-medium date date-picker" data-date-format="dd/mm/yyyy" data-date-start-date="+0d" style="margin-bottom: 5px;">
+                            <input id="sell-date" type="text" class="form-control" readonly="">
+                            <span class="input-group-btn"><button class="btn default" type="button"><i class="fa fa-calendar"></i></button></span>
+                        </div>
+                    </div>
+                    <br style="clear: both;"/>
+                    <div class="row pull-right">
+                        <h4 id="payment-date-field" class="pull-left" style="margin: 10px 10px 10px 20px;"><strong>Termin płatności:</strong></h4>
+                        <div class="input-group input-medium">
+                            <input id="payment-date" type="text" class="form-control" readonly="">
+                        </div>
+                    </div>
+                </div>
+			</div>
+			<div class="row" style="margin-bottom: 30px;">
+				<h1 style="text-align: center;">Faktura</h1>
+				<h2 id="invoice-full-number" style="text-align: center;">0001/01/2015</h2>
+                <h4 id="original-copy-txt" style="text-align: center;">ORYGINAŁ</h4>
+			</div>
+			<div class="row" style="margin-bottom: 30px;">
+                <div class="col-sm-8">
+                    <h4><strong>Sprzedawca:</strong></h4>
+                    <ul class="list-unstyled" style="font-size: 15px;">
+                        <li>Codeinc Marcin Walas</li>
+                        <li>PROF. STEFANA GOLACHOWSKIEGO 18</li>
+                        <li>45-842 Opole</li>
+                        <li>NIP: 7542912497</li>
+                        <li>mBank</li>
+                        <li>26 1140 2004 0000 3102 7503 4616</li>
+                    </ul>
+                </div>
+				<div class="col-sm-4">
+					<h4><strong>Nabywca:</strong></h4>
+					<ul class="list-unstyled" style="font-size: 15px;">
+						<li>
+                            <div class="form-group">
+                                <div class="select2-container form-control select2">
+                                    <input id="buyer-name" class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-31" style="width: 100% !important;">
+                                </div>
+                            </div>
+                        </li>
+						<li>
+                            <div class="form-group">
+                                <input id="buyer-address" type="text" class="form-control" placeholder="Adres">
+                            </div>
+                        </li>
+						<li>
+                            <div class="form-group">
+                                <div class="form-group pull-left col-xs-4" style="padding-left: 0;">
+                                    <input id="buyer-zip" ype="text" class="form-control" placeholder="Kod Pocztowy">
+                                </div>
+                                <div class="form-group pull-right col-xs-8" style="padding-right: 0;">
+                                    <input id="buyer-city" type="text" class="form-control" placeholder="Miasto">
+                                </div>
+                            </div>
+                        </li>
+						<li>
+                            <div class="form-group">
+                                <input id="buyer-vatId" type="text" class="form-control" placeholder="NIP">
+                            </div>
+                        </li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<table id="invoice-main-table" class="table table-striped table-hover">
+					<thead>
+					<tr>
+						<th class="text-vcenter-center">
+							 #
+						</th>
+						<th class="col-sm-5">
+							 Nazwa towaru/usługi
+						</th>
+						<th class="hidden-480 col-sm-1">
+							 Ilość
+						</th>
+                        <th class="hidden-480 col-sm-1">
+                            Jednostka
+                        </th>
+						<th class="hidden-480 col-sm-1">
+							 Cena netto
+						</th>
+						<th class="hidden-480 col-sm-1">
+							 VAT %
+						</th>
+                        <th class="hidden-480 col-sm-1">
+                            Wartość netto
+                        </th>
+						<th class="col-sm-1">
+							 Wartość brutto
+						</th>
+                        <th class="col-sm-1">
+                            &nbsp;
+                        </th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td class="invoice-table-index text-vcenter-center">1</td>
+						<td>
+                            <div class="select2-container form-control select2">
+                                <input class="select2-focusser select2-offscreen" data-name="item-name" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-31" style="width: 100% !important;">
+                            </div>
+						</td>
+						<td class="hidden-480">
+                            <input type="text" class="form-control" data-name="item-qty">
+						</td>
+                        <td class="hidden-480">
+                            <input type="text" class="form-control" data-name="item-unit">
+                        </td>
+						<td class="hidden-480">
+                            <input type="text" class="form-control" data-name="item-net-value">
+						</td>
+						<td class="hidden-480">
+                            <input type="text" class="form-control" data-name="item-vat-value">
+                        </td>
+                        <td class="hidden-480 text-vcenter" data-name="item-net-value"></td>
+						<td class="text-vcenter" data-name="item-value"></td>
+                        <td class="text-align-center">
+                            <a href="#" class="add-new-invoice-record btn btn-icon-only green"><i class="fa fa-plus"></i></a>
+                            <a href="#" class="remove-invoice-record btn btn-icon-only red"><i class="fa fa-times"></i></a>
+                        </td>
+					</tr>
+					</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 invoice-block">
+					<ul class="list-unstyled amounts">
+						<li>
+							<strong>Wartość netto:</strong> <span class="total-invoice-net-value"></span>
+						</li>
+						<li>
+							<strong>Wartość VAT:</strong> <span class="total-invoice-vat-value"></span>
+						</li>
+						<li>
+							<strong>Wartość brutto:</strong> <span class="total-invoice-value"></span>
+						</li>
+					</ul>
+				</div>
+                <div class="col-xs-6" style="text-align: right;">
+                    <ul class="list-unstyled amounts">
+                        <li>
+                            <h3><strong>Do zapłaty:</strong> <span class="total-invoice-value"></span></h3>
+                        </li>
+                    </ul>
+                </div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12 invoice-block">
+					<ul class="list-unstyled amounts">
+						<li>
+							<strong>Słownie: </strong>
+                            <span id="amount-in-words"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+            <div class="row">
+                <div class="col-xs-12 invoice-block">
+                    <ul class="list-unstyled amounts">
+                        <li>
+                            <strong>Uwagi:</strong>
+                            <div class="form-group">
+                                <textarea id="invoice-comments" class="form-control" rows="3" style="font-size: 13px;"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			<hr />
+			<div class="row">
+				<div class="col-xs-12 invoice-block">
+                    <ul class="list-unstyled amounts text-align-center col-sm-2 pull-left">
+                        <li>
+                            <h4><strong>Marcin Walas</strong></h4>
+                        </li>
+                        <li>
+                            Imię i Nazwisko odbiorcy
+                        </li>
+                    </ul>
+					<ul class="list-unstyled amounts text-align-center col-sm-2 pull-right">
+						<li>
+							<h4><strong>Marcin Walas</strong></h4>
+						</li>
+                        <li>
+                            Imię i Nazwisko wystawcy
+                        </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<script>
+    var getPaymentDateUrl       = '<?php echo $this->url('base/default', array('controller' => 'invoice', 'action' => 'get-payment-date')); ?>';
+    var convertAmountToWordsUrl = '<?php echo $this->url('base/default', array('controller' => 'invoice', 'action' => 'convert-amount-to-words')); ?>';
+    var createServiceUrl        = '<?php echo $this->url('base/default', array('controller' => 'service', 'action' => 'create')); ?>';
+    var createBuyerUrl          = '<?php echo $this->url('base/default', array('controller' => 'buyer', 'action' => 'create')); ?>';
+    var createInvoiceUrl        = '<?php echo $this->url('base/default', array('controller' => 'invoice', 'action' => 'create')); ?>';
+    var getServicesUrl          = '<?php echo $this->url('base/default', array('controller' => 'service', 'action' => 'get-services')); ?>';
+    var getBuyersUrl            = '<?php echo $this->url('base/default', array('controller' => 'buyer', 'action' => 'get-buyers')); ?>';
+    var rateUSD                 = '<?php echo $this->usd; ?>';
+    var rateEUR                 = '<?php echo $this->eur; ?>';
+</script>

@@ -1,0 +1,35 @@
+<div class="navbar-fixed-top" style="margin-top: 45px; z-index: 100;">
+    <div class="theme-panel hidden-xs hidden-sm" style="margin-top:2px; width: 500px;">
+        <div class="toggler">
+        </div>
+        <div class="toggler-close">
+        </div>
+        <div class="theme-options" style="width: 850px;">
+            <div class="theme-option theme-colors pull-left" style="margin-right: 50px;">
+                <span>JĘZYK</span>
+                <a class="btn btn-lg blue">PL</a>
+                <a class="btn btn-lg grey">EN</a>
+            </div>
+            <div class="theme-option theme-colors pull-left" style="margin-right: 50px;">
+                <span>WALUTA</span>
+                <a class="btn btn-lg green invoice-currency" data-name="PLN">PLN</a>
+                <a class="btn btn-lg grey invoice-currency" data-name="USD"><i class="fa fa-usd"></i></a>
+                <a class="btn btn-lg grey invoice-currency" data-name="EUR"><i class="fa fa-eur"></i></a>
+            </div>
+            <div class="theme-option theme-colors pull-left" style="margin-right: 50px;">
+                <span>POKAŻ "ORYGINAŁ/KOPIA"</span>
+                <a class="show-original-copy btn btn-lg red" data-key="1">Tak</a>
+                <a class="show-original-copy btn btn-lg grey" data-key="0">Nie</a>
+            </div>
+            <div class="theme-option theme-colors">
+                <span>TERMIN PŁATNOŚCI (DNI)</span>
+                <input id="days-to-payment" type="text" class="form-control" style="width: 15%; height: 43px;">
+            </div>
+            <div class="theme-option theme-colors clearfix">
+                <span>OPCJE</span>
+                <a class="btn btn-lg blue hidden-print margin-bottom-5" href="<?php echo $this->url('base/default', array('controller' => 'invoice', 'action' => 'pdf-export')); ?>">Pobierz PDF <i class="fa fa-download"></i></a>
+                <a id="save-changes" class="btn btn-lg green hidden-print margin-bottom-5">Zapisz zmiany <i class="fa fa-check"></i></a>
+            </div>
+        </div>
+    </div>
+</div>

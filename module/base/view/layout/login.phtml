@@ -1,0 +1,90 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pl">
+  <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('CI-'. $this->translate('Faktury'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+	
+		<?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+						->appendStylesheet('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all')
+                        ->appendStylesheet($this->basePath() . '/fonts/font-awesome/css/font-awesome.min.css')
+                        ->appendStylesheet($this->basePath() . '/img/simple-line-icons/simple-line-icons.min.css')
+                        ->appendStylesheet($this->basePath() . '/bootstrap/css/bootstrap.min.css')
+                        ->appendStylesheet($this->basePath() . '/uniform/css/uniform.default.css')
+                        ->appendStylesheet($this->basePath() . '/select2/select2.css')
+                        ->appendStylesheet($this->basePath() . '/css/components.css')
+                        ->appendStylesheet($this->basePath() . '/css/plugins.css')
+                        ->appendStylesheet($this->basePath() . '/css/layout.css')
+                        ->appendStylesheet($this->basePath() . '/css/themes/darkblue.css')
+                        ->appendStylesheet($this->basePath() . '/css/custom.css');
+        ?>
+  </head>
+  <body class="login">
+  <!-- BEGIN LOGO -->
+  <div class="logo">
+      <a href="index.html">
+          <img src="<?php echo $this->basePath().'/img/Codeinc-logo.png'; ?>" alt=""/>
+      </a>
+  </div>
+  <!-- END LOGO -->
+  <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+  <div class="menu-toggler sidebar-toggler">
+  </div>
+  <!-- END SIDEBAR TOGGLER BUTTON -->
+  <!-- BEGIN LOGIN -->
+  <div class="content">
+      <?php echo $this->content; ?>
+  </div>
+  <!-- END LOGIN -->
+  <!-- BEGIN COPYRIGHT -->
+  <div class="copyright">
+      2015 &copy; Codeinc
+  </div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+  
+			
+			<?php echo $this->inlineScript()
+            	->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            	->prependFile($this->basePath() . '/js/excanvas.min.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+	            ->appendFile ( $this->basePath () . '/js/jquery-1.11.0.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery-migrate.min.js' )
+	            ->appendFile ( $this->basePath () . '/bootstrap/js/bootstrap.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery.blockui.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery.cokie.min.js' )
+	            ->appendFile ( $this->basePath () . '/uniform/jquery.uniform.min.js' )
+                ->appendFile ( $this->basePath () . '/jquery-validation/js/jquery.validate.min.js' )
+                ->appendFile ( $this->basePath () . '/backstretch/jquery.backstretch.min.js' )
+                ->appendFile ( $this->basePath () . '/select2/select2.min.js' )
+                ->appendFile ( $this->basePath () . '/select2/select2_locale_pl.js' )
+	            ->appendFile ( $this->basePath () . '/js/metronic.js' )            
+	            ->appendFile ( $this->basePath () . '/js/layout.js' )
+        	; ?>
+			
+			<script>
+			jQuery(document).ready(function() {    
+			    Metronic.init(); // init metronic core componets
+			    Layout.init(); // init layout
+                Login.init(); // init login
+                // init background slide images
+                $.backstretch([
+                        "<?php echo $this->basePath() . '/img/login/bg/1.jpg'; ?>",
+                        "<?php echo $this->basePath() . '/img/login/bg/2.jpg'; ?>",
+                        "<?php echo $this->basePath() . '/img/login/bg/3.jpg'; ?>",
+                        "<?php echo $this->basePath() . '/img/login/bg/4.jpg'; ?>"
+                    ], {
+                        fade: 1000,
+                        duration: 8000
+                    }
+                );
+			});
+			</script>
+			<!-- END JAVASCRIPTS -->
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pl">
+  <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('CI-'. $this->translate('Faktury'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+	
+		<?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+						->appendStylesheet('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all')
+                        ->appendStylesheet($this->basePath() . '/fonts/font-awesome/css/font-awesome.min.css') 
+                        ->appendStylesheet($this->basePath() . '/img/simple-line-icons/simple-line-icons.min.css')
+                        ->appendStylesheet($this->basePath() . '/bootstrap/css/bootstrap.min.css')
+                        ->appendStylesheet($this->basePath() . '/uniform/css/uniform.default.css')
+                        ->appendStylesheet($this->basePath() . '/bootstrap-switch/css/bootstrap-switch.min.css')
+                        ->appendStylesheet($this->basePath() . '/gritter/css/jquery.gritter.css')
+                        ->appendStylesheet($this->basePath() . '/bootstrap-daterangepicker/daterangepicker-bs3.css')
+                        ->appendStylesheet($this->basePath() . '/fullcalendar/fullcalendar.css')
+                        ->appendStylesheet($this->basePath() . '/jqvmap/jqvmap/jqvmap.css')
+                        ->appendStylesheet($this->basePath() . '/css/tasks.css')
+                        ->appendStylesheet($this->basePath() . '/css/error.css')
+                        ->appendStylesheet($this->basePath() . '/css/components.css')
+                        ->appendStylesheet($this->basePath() . '/css/plugins.css')
+                        ->appendStylesheet($this->basePath() . '/css/layout.css')
+                        ->appendStylesheet($this->basePath() . '/css/themes/darkblue.css')
+                        ->appendStylesheet($this->basePath() . '/css/plugins.css')
+                        ->appendStylesheet($this->basePath() . '/css/custom.css');
+        ?>
+  </head>
+<body class="page-404-3">
+<?php echo $this->content; ?>
+  
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+  
+			
+			<?php echo $this->inlineScript()
+            	->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            	->prependFile($this->basePath() . '/js/excanvas.min.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+	            ->appendFile ( $this->basePath () . '/js/jquery-1.11.0.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery-migrate.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery-ui-1.10.3.custom.min.js' )
+	            ->appendFile ( $this->basePath () . '/bootstrap/js/bootstrap.min.js' )
+	            ->appendFile ( $this->basePath () . '/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery-slimscroll/jquery.slimscroll.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery.blockui.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery.cokie.min.js' )
+	            ->appendFile ( $this->basePath () . '/uniform/jquery.uniform.min.js' )
+	            ->appendFile ( $this->basePath () . '/bootstrap-switch/js/bootstrap-switch.min.js' ) 
+	            ->appendFile ( $this->basePath () . '/jqvmap/jqvmap/jquery.vmap.js' )
+	            ->appendFile ( $this->basePath () . '/jqvmap/jqvmap/maps/jquery.vmap.russia.js' )
+	            ->appendFile ( $this->basePath () . '/jqvmap/jqvmap/maps/jquery.vmap.world.js' )
+	            ->appendFile ( $this->basePath () . '/jqvmap/jqvmap/maps/jquery.vmap.europe.js' )
+	            ->appendFile ( $this->basePath () . '/jqvmap/jqvmap/maps/jquery.vmap.germany.js' )
+	            ->appendFile ( $this->basePath () . '/jqvmap/jqvmap/maps/jquery.vmap.usa.js' )
+	            ->appendFile ( $this->basePath () . '/jqvmap/jqvmap/data/jquery.vmap.sampledata.js' )
+	            ->appendFile ( $this->basePath () . '/flot/jquery.flot.min.js' )
+	            ->appendFile ( $this->basePath () . '/flot/jquery.flot.resize.min.js' )
+	            ->appendFile ( $this->basePath () . '/flot/jquery.flot.categories.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery.pulsate.min.js' )
+	            ->appendFile ( $this->basePath () . '/bootstrap-daterangepicker/moment.min.js' )
+	            ->appendFile ( $this->basePath () . '/bootstrap-daterangepicker/daterangepicker.js' )
+	            ->appendFile ( $this->basePath () . '/fullcalendar/fullcalendar.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery-easypiechart/jquery.easypiechart.min.js' )
+	            ->appendFile ( $this->basePath () . '/js/jquery.sparkline.min.js' )
+	            ->appendFile ( $this->basePath () . '/gritter/js/jquery.gritter.js' )
+	            ->appendFile ( $this->basePath () . '/js/metronic.js' )            
+	            ->appendFile ( $this->basePath () . '/js/layout.js' )
+	            ->appendFile ( $this->basePath () . '/js/quick-sidebar.js' )
+	            ->appendFile ( $this->basePath () . '/js/index.js' )
+	            ->appendFile ( $this->basePath () . '/js/tasks.js' )
+        	; ?>
+			
+			<script>
+			jQuery(document).ready(function() {    
+			   Metronic.init(); // init metronic core componets
+			   Layout.init(); // init layout
+			   QuickSidebar.init() // init quick sidebar
+			   Index.init();   
+			   Index.initDashboardDaterange();
+			   Index.initJQVMAP(); // init index page's custom scripts
+			   Index.initCalendar(); // init index page's custom scripts
+			   Index.initCharts(); // init index page's custom scripts
+			   Index.initChat();
+			   Index.initMiniCharts();
+			   Index.initIntro();
+			   Tasks.initDashboardWidget();
+			});
+			</script>
+			<!-- END JAVASCRIPTS -->
+  </body>
+</html>

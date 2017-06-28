@@ -1,0 +1,5 @@
+XSym
+0058
+415ff4a4a0c63622878c07a5474dc39b
+../zendframework/zendframework/bin/pluginmap_generator.php
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

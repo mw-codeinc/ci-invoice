@@ -1,0 +1,19 @@
+{
+    "name": "ci-invoice",
+    "description": "CI Invoice",
+    "license": "BSD-3-Clause",
+    "keywords": [
+    	"condeinc",
+        "invoice"
+    ],
+    "homepage": "http://www.codeinc.pl",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*",
+        "doctrine/doctrine-orm-module": "0.7.*",
+        "doctrine/migrations": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master",
+        "mvlabs/mvlabs-snappy": "dev-master",
+        "evandotpro/edp-module-layouts": "1.0"
+    }
+}

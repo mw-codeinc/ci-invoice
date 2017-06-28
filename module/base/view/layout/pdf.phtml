@@ -1,0 +1,46 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pl">
+  <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('CI-'. $this->translate('Faktury'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+	
+		<?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+						->appendStylesheet('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all')
+                        ->appendStylesheet($this->basePath() . '/fonts/font-awesome/css/font-awesome.min.css')
+                        ->appendStylesheet($this->basePath() . '/img/simple-line-icons/simple-line-icons.min.css')
+                        ->appendStylesheet($this->basePath() . '/bootstrap/css/bootstrap.min.css')
+                        ->appendStylesheet($this->basePath() . '/uniform/css/uniform.default.css')
+                        ->appendStylesheet($this->basePath() . '/bootstrap-switch/css/bootstrap-switch.min.css')
+                        ->appendStylesheet($this->basePath() . '/gritter/css/jquery.gritter.css')
+                        ->appendStylesheet($this->basePath() . '/bootstrap-daterangepicker/daterangepicker-bs3.css')
+                        ->appendStylesheet($this->basePath() . '/fullcalendar/fullcalendar.css')
+                        ->appendStylesheet($this->basePath() . '/jqvmap/jqvmap/jqvmap.css')
+                        ->appendStylesheet($this->basePath() . '/css/tasks.css')
+                        ->appendStylesheet($this->basePath() . '/css/components.css')
+                        ->appendStylesheet($this->basePath() . '/css/plugins.css')
+                        ->appendStylesheet($this->basePath() . '/css/layout.css')
+                        ->appendStylesheet($this->basePath() . '/css/themes/darkblue.css')
+                        ->appendStylesheet($this->basePath() . '/css/plugins.css')
+                        ->appendStylesheet($this->basePath() . '/css/custom.css');
+        ?>
+  </head>
+  <body class="page-header-fixed page-quick-sidebar-over-content page-style-square">
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <?php echo $this->content; ?>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END CONTAINER -->
+  </body>
+</html>
